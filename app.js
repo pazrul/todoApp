@@ -11,7 +11,7 @@ var path = require('path');
 var mongo = require('mongodb');
 var monk = require('monk');
 
-var URI = process.env.MONGOLAB_URI || process.env.MONGOLAB_URL || 'mongodb://heroku_app16796234:3a71b260hnvgsp99ns2l02fa6i@ds043368.mongolab.com:43368/heroku_app16796234';
+var URI = process.env.MONGOLAB_URI || process.env.MONGOLAB_URL;
 var db = monk(URI);
 
 var app = express();

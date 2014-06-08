@@ -5,10 +5,10 @@
 
 exports.list = function(db) {
 	return function(req, res) {
-		var collection = db.get('notecollection');
+		var collection = db.get('todos');
 		collection.find({}, {}, function(e, docs) {
 			res.render('list', {
-				"notes" : docs
+				"todos" : docs
 			});
 		});
 	};
