@@ -2,12 +2,12 @@ include header
 h1= title
 if(newNote)
 	h2= newNote
-	#notes
-		if(todos)
-			- each todo in todos
-				div(class= todo.completed ? 'completed' : todo)
-					//div.user= todo.username
-					div.body!= todo.content
-					div.created_at= todo.created_at
-		else
-			h2 Whoops, something went wrong
+#notes
+	if(todos)
+		- each todo in todos
+			div(class= todo.completed ? 'completed' : todo)
+				//div.user= todo.username
+				div.body!= todo.content
+				div.created_at= todo.created_at
+	else
+		h2 Whoops, something went wrong
