@@ -12,8 +12,7 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var lessMiddleware = require('less-middleware');
 
-var URI = process.env.MONGOLAB_URI || process.env.MONGOLAB_URL || "mongodb://heroku_app26159854:qta0vg352k0l0g58jvl1io8aja@ds049997.mongolab.com:49997/heroku_app26159854";
-console.log(URI);
+var URI = process.env.MONGOLAB_URI || process.env.MONGOLAB_URL;
 var db = monk(URI);
 
 var app = express();

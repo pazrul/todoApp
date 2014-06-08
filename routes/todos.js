@@ -29,7 +29,6 @@ exports.addtodo = function(db){
 	return function(req, res) {
 		//var userName = req.body.username;
 		var todoContent = req.body.todoContent;
-
 		var collection = db.get('todos');
 
 		//Submit to DB
@@ -43,7 +42,7 @@ exports.addtodo = function(db){
 				res.send("There was a problem adding the info to the DB");
 			}
 			else {
-				res.redirect("list");
+				res.redirect("/");
 			}
 		});
 	};
