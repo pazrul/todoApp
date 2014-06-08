@@ -12,7 +12,8 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var lessMiddleware = require('less-middleware');
 
-var URI = process.env.MONGOLAB_URI || process.env.MONGOLAB_URL;
+var URI = process.env.MONGOLAB_URI || process.env.MONGOLAB_URL || "mongodb://heroku_app26159854:qta0vg352k0l0g58jvl1io8aja@ds049997.mongolab.com:49997/heroku_app26159854";
+console.log(URI);
 var db = monk(URI);
 
 var app = express();
@@ -30,10 +31,8 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(function(){
-	lessMiddleware(path.join(__dirname, '/public'));
-	express.static(path.join(__dirname, 'public'));
-});
+app.use(lessMiddleware(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 // development only
 if ('development' == app.get('env')) {
