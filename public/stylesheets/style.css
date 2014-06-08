@@ -1,5 +1,6 @@
 body {
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	margin: 0;
 }
 
 a {
@@ -17,6 +18,7 @@ a {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842',GradientType=0 );
 	position: fixed;
 	width: 100%;
+	padding: 15px 0;
 }
 .navigation ul {
 	display: inline;
@@ -27,6 +29,6 @@ a {
 	padding: 10px 20px;
 }
 
-.content {
-	padding: 120px 20px 0 20px;
+.container {
+	padding: 100px 20px 0 20px;
 }
