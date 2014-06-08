@@ -3,12 +3,12 @@ include header
   if(newNote)
     h2= newNote
   #notes
-      if(notes)
-        - each note in notes
-          div.note
-            div.user= note.username
-            div.body!= note.content
-            div.created_at= note.created_at
-            div.tags= note.tags
+      if(todos)
+        - each todo in todos
+          div.todo
+            div.user= todo.username
+            div.body!= todo.content
+            div.created_at= todo.created_at
+            div.tags= todo.tags
       else
         h2 Whoops, something went wrong
