@@ -17,8 +17,8 @@ exports.list = function(db) {
 * Get page to add new todo
 */
 
-exports.newnote = function(req, res) {
-	res.render('new-note', { title: 'Add New Note'});
+exports.newtodo = function(req, res) {
+	res.render('new-todo', { title: 'Add New Note'});
 };
 
 /*
