@@ -38,6 +38,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/todos', todos.list(db));
+app.get('/newtodo', routes.newtodo);
+
+app.post('/addtodo', todos.addtodo(db));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
