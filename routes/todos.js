@@ -18,7 +18,7 @@ exports.list = function(db) {
 */
 
 exports.newtodo = function(req, res) {
-	res.render('new-todo', { title: 'Add New Note'});
+	res.render('new-todo', { title: 'Add New Todo'});
 };
 
 /*
