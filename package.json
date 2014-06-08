@@ -9,7 +9,8 @@
     "express": "3.3.8",
     "mongodb": "1.1.11",
     "monk": "0.7.1",
-    "jade": "*"
+    "jade": "*",
+    "less-middleware" : "*"
   },
   "gitHead": "b854c6f287f43650fcbd4a08eccf6d94dc9b52d9",
   "description": "ERROR: No README.md file found!",

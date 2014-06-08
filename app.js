@@ -10,6 +10,7 @@ var http = require('http');
 var path = require('path');
 var mongo = require('mongodb');
 var monk = require('monk');
+var lessMiddleware = require('less-middleware');
 
 var URI = process.env.MONGOLAB_URI || process.env.MONGOLAB_URL;
 var db = monk(URI);
@@ -29,7 +30,13 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(){
+	app.use(lessMiddleware({
+		src: __dirname + "/public",
+		compress : true
+	}));
+	express.static(path.join(__dirname, 'public'));
+});
 
 // development only
 if ('development' == app.get('env')) {
