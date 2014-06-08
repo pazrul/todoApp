@@ -38,7 +38,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/todos', todos.list(db));
-app.get('/newtodo', routes.newtodo);
+app.get('/newtodo', todos.newtodo);
 
 app.post('/addtodo', todos.addtodo(db));
 
