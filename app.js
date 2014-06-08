@@ -31,10 +31,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(function(){
-	app.use(lessMiddleware({
-		src: __dirname + "/public",
-		compress : true
-	}));
+	lessMiddleware(path.join(__dirname, '/public'));
 	express.static(path.join(__dirname, 'public'));
 });
 
