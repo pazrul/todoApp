@@ -1,0 +1,18 @@
+div.navigation
+	ul
+		li 
+			a(href='/') Home
+		li 
+			a(href='/newnote') Add
+		li
+			a(href='/list') List Notes
+		li
+			a(href='/users') Users
+	form( name="search",method="get",action="/search",class="searchBar")
+		div
+		div
+			span Search Tags:
+			br
+			input(type="text", name="tag", id="tagSearch")
+		div#tagSearchSubmit
+			input(type="submit", value="Search")

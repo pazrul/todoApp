@@ -1,0 +1,40 @@
+Things To implement
+
+DataBase connection
+
+isLoggedIn var, set to true till some sort of OAuth implementation
+set cookie for logged in
+List Todos
+Add Todo
+	Open modal
+	generate form
+		field for Body of Note
+		field for due date (if needed)
+		submit button (ajax if possible - websockets? (probably overkill))
+	update DOM with new container with note
+	Add class of to-be-done
+Edit Todo
+	modal with previous form
+Remove Todo
+	update db with collction.noteID.complete = true
+	add class of completed or done
+delete todo
+	Remove from Database
+
+Pages: 
+homepage
+	if (loggedIn) {
+		render(list)
+	}
+	else {
+		render(about page)
+	}
+about page 
+	!loggedIn 
+		list what it do
+		bar with log in button - opens modal
+
+
+RESPONSIVE LAYOUT!
+grunt to build less --watch if possible.
+less file for each size responsive

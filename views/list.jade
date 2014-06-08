@@ -1,0 +1,14 @@
+include header
+  h1= title
+  if(newNote)
+    h2= newNote
+  #notes
+      if(notes)
+        - each note in notes
+          div.note
+            div.user= note.username
+            div.body!= note.content
+            div.created_at= note.created_at
+            div.tags= note.tags
+      else
+        h2 Whoops, something went wrong
