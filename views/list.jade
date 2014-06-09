@@ -7,7 +7,8 @@ if(newNote)
 		- each todo in todos
 			div(class= todo.completed ? 'completed' : "todo")
 				//div.user= todo.username
-				div.body!= todo.content
-				div.created_at= todo.created_at
+				div.todo-body!= todo.content
+				a.delete-todo(href="#" data-id=todo._id.toHexString()) delete it
+				//div.created_at= todo.created_at
 	else
 		h2 Whoops, something went wrong
