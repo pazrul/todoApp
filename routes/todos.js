@@ -40,7 +40,7 @@ exports.addtodo = function(req, res) {
 			res.send('There was a problem adding the info to the DB');
 		}
 		else {
-			res.redirect('/');
+			res.redirect('/todos');
 		}
 	});
 };
