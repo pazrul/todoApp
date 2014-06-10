@@ -1,4 +1,4 @@
 todoApp
 =======
 
-node and angular todo app
+node todo app
