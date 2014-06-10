@@ -7,8 +7,9 @@ include header
 			- each todo in todos
 				div(class= todo.completed ? 'completed' : "todo")
 					//div.user= todo.username
-					div.todo-body!= todo.content
-					a.delete-todo(href="#" data-id=todo._id.toHexString()) delete it
+					div.todo-body
+						h2= todo.content
+					a.delete-todo(href="#" data-id=todo._id.toHexString()) Finally Done?
 					//div.created_at= todo.created_at
 		else
 			h2 Whoops, something went wrong

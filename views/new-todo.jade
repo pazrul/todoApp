@@ -3,9 +3,6 @@ include header
 	h1= title
 	form( name="adduser",method="post",action="/addtodo")
 		div
-			div
-				span New Todo :
-				br
-				textarea( name="todoContent", cols=20, rows=5, id="addTodoBody")
-			div#addNoteSubmit
-				input(type="submit", value="Send")
+			textarea( name="todoContent", cols=20, rows=5, id="addTodoBody")
+		div#addNoteSubmit
+			input(type="submit", value="Add New")

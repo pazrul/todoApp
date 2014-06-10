@@ -1,5 +1,23 @@
+/*
+* Variables and Mixins
+*/
+
 @navBGColorTop: #d2ff52;
 @navBGColorBottom: #91e842;
+
+.buildGradient(@startColor, @endColor, @startPercent, @endPercent) {
+	background: @startColor;
+	background: -moz-linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(@startPercent, @startColor), color-stop(@endPercent, @endColor));
+	background: -webkit-linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+	background: -o-linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+	background: -ms-linear-gradient(top, @startColor @startPercent, @endColor @endPercent);
+	background: linear-gradient(to bottom, @startColor @startPercent, @endColor @endPercent);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@startColor', endColorstr='@endColor',GradientType=0 );
+}
+/*
+* Styles
+*/
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -22,14 +40,12 @@ a {
 }
 
 .navigation {
-	background: @navBGColorTop;
-	background: -moz-linear-gradient(top, @navBGColorTop 0%, @navBGColorBottom 57%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@navBGColorTop), color-stop(57%,@navBGColorBottom));
-	background: -webkit-linear-gradient(top, @navBGColorTop 0%,@navBGColorBottom 57%);
-	background: -o-linear-gradient(top, @navBGColorTop 0%,@navBGColorBottom 57%);
-	background: -ms-linear-gradient(top, @navBGColorTop 0%,@navBGColorBottom 57%);
-	background: linear-gradient(to bottom, @navBGColorTop 0%,@navBGColorBottom 57%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@navBGColorTop', endColorstr='@navBGColorBottom',GradientType=0 );
+	h1 {
+		float: left;
+		margin-left: 10%;
+	}
+	.buildGradient(@navBGColorTop, @navBGColorBottom, 0%, 57%);
+	border-bottom: 2px solid #4B3D3D;
 	position: fixed;
 	width: 100%;
 	padding: 15px 0;
@@ -63,7 +79,87 @@ a {
 
 .container {
 	background: #fff;
-	height: 100%;
-	margin: 0 50px 0px 50px;
+	height: auto;
+	margin: 0 10% 0 10%;
+	min-height: 100%;
 	padding: 100px 20px 20px 20px;
+
+	.todo-body {
+		border-radius: 20px;
+		color: #eee;
+		height: 80px;
+		line-height: 80px;
+		margin-bottom: 10px;
+		.buildGradient(#1e5799, #207cca, 0%, 54%);
+		text-align: center;
+
+		h2 {
+			font-family: 'Ubuntu', sans-serif;
+
+			&:first-letter {
+				text-transform: uppercase;
+			}
+		}
+	}
+	a {
+		color: #fff;
+		display: block;
+		float: right;
+		margin: -60px 20px 0 0;
+
+	}
+}
+
+#modal-background {
+	background: rgba(0,0,0,.8);
+	height: 100%;
+	left: 0;
+	min-height: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	.modal-content {
+		background: #fff;
+		border-radius: 20px;
+		border: 1px solid #000;
+		left: 50%;
+		opacity: 1.0;
+		padding: 6% 0;
+		position: absolute;
+		top: 50%;
+		width: 50%;
+		-webkit-transform: translate(-50%, -50%);
+
+		h1,
+		h2,
+		a {
+			display:block;
+			text-align: center;
+		}
+		a {
+			background: red;
+			padding: 10px 20px;
+		}
+
+		.confirmed {
+			background: green;
+
+		}
+
+
+		form {
+			margin: 0 auto;
+			width: 50%;
+
+			textarea {
+				width: 100%;
+			}
+			
+
+			#addNoteSubmit {
+				text-align: center;
+			}
+		}
+	}
 }
