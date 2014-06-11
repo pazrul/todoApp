@@ -83,6 +83,7 @@ $(document).ready(function(){
 				data: { 'content' : $self.parent().find('#updateTodo').val()},
 				success: function(data){
 					$('#modal-background').click();
+					window.setTimeOut(location.reload(false), 500);
 				},
 				error: function(){
 					generateModal(errorMessage);
