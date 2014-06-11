@@ -48,7 +48,9 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/todos', todos.list);
-app.get('/newtodo', todos.newtodo);
+app.get('/todos/:delete?', todos.delModal);
+app.get('/newtodo/:partial?', todos.newtodo);
+
 
 app.post('/addtodo', todos.addtodo);
 

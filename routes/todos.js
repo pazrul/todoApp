@@ -17,7 +17,12 @@ exports.list = function(req, res) {
 */
 
 exports.newtodo = function(req, res) {
-	res.render('new-todo', { title: 'Add New Todo'});
+	if (req.params.partial){
+		res.render('partials/partial-new-todo', {title: 'Add New Todo'});
+	}
+	else {
+		res.render('new-todo', { title: 'Add New Todo'});
+	}
 };
 
 /*
@@ -45,11 +50,18 @@ exports.addtodo = function(req, res) {
 	});
 };
 
+exports.delModal = function(req, res) {
+	if (req.params.delete) {
+		res.render('partials/partial-delete');
+	}
+	else {
+		res.redirect('/todos');
+	}
+}
 
 exports.deleteTodo = function(req, res) {
 	var id = req.params.id,
 	collection = db.get('todos');
-	console.log('deleted');
 	collection.remove({
 		'_id' : id
 	},function(err, doc) {

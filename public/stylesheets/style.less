@@ -4,6 +4,7 @@
 
 @navBGColorTop: #d2ff52;
 @navBGColorBottom: #91e842;
+@deleteRed: #EE2C2C;
 
 .buildGradient(@startColor, @endColor, @startPercent, @endPercent) {
 	background: @startColor;
@@ -107,6 +108,10 @@ a {
 		float: right;
 		margin: -60px 20px 0 0;
 
+		&:hover {
+			color: @deleteRed;
+		}
+
 	}
 }
 
@@ -118,48 +123,51 @@ a {
 	position: fixed;
 	top: 0;
 	width: 100%;
+}
+.modal-content {
+	background: #fff;
+	border-radius: 20px;
+	border: 1px solid #000;
+	left: 50%;
+	opacity: 1.0;
+	padding: 6% 0;
+	position: absolute;
+	top: 50%;
+	width: 50%;
+	-webkit-transform: translate(-50%, -50%);
 
-	.modal-content {
-		background: #fff;
-		border-radius: 20px;
-		border: 1px solid #000;
-		left: 50%;
-		opacity: 1.0;
-		padding: 6% 0;
-		position: absolute;
-		top: 50%;
+	h1,
+	h2,
+	a {
+		display:block;
+		text-align: center;
+	}
+	button {
+		background: @deleteRed;
+		color: #fff;
+		display: block;
+		margin: 0 auto;
+		padding: 10px 20px;
+	}
+
+	.confirmed {
+		background: @navBGColorBottom;
+		color: #000;
+
+	}
+
+
+	form {
+		margin: 0 auto;
 		width: 50%;
-		-webkit-transform: translate(-50%, -50%);
 
-		h1,
-		h2,
-		a {
-			display:block;
+		textarea {
+			width: 100%;
+		}
+		
+
+		#addNoteSubmit {
 			text-align: center;
-		}
-		a {
-			background: red;
-			padding: 10px 20px;
-		}
-
-		.confirmed {
-			background: green;
-
-		}
-
-
-		form {
-			margin: 0 auto;
-			width: 50%;
-
-			textarea {
-				width: 100%;
-			}
-			
-
-			#addNoteSubmit {
-				text-align: center;
-			}
 		}
 	}
 }
