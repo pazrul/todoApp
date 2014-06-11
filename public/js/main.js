@@ -9,6 +9,7 @@ var errorMessage = '<h1>Something went wrong, try again in a few seconds',
 		e.stopPropagation();
 	});
 	$('#modal-background').on('click', function(){
+		$(this).find('*').off();
 		$(this).fadeOut(500, function(){
 			$(this).remove();
 		})
