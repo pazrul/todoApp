@@ -88,7 +88,7 @@ a {
 	.todo-body {
 		border-radius: 20px;
 		color: #eee;
-		height: 80px;
+		min-height: 80px;
 		line-height: 80px;
 		margin-bottom: 10px;
 		.buildGradient(#1e5799, #207cca, 0%, 54%);
@@ -96,6 +96,8 @@ a {
 
 		h2 {
 			font-family: 'Ubuntu', sans-serif;
+			margin: 0 auto;
+			max-width: 80%;
 
 			&:first-letter {
 				text-transform: uppercase;
@@ -192,5 +194,40 @@ a {
 		margin: 1% 10%;
 		text-align: center;
 		width: 80%;
+	}
+}
+
+@media all and (max-width: 880px) {
+	.navigation {
+		h1{
+			float: none;
+			margin-left: 0;
+			text-align: center;
+		}
+		ul {
+			display: block;
+			float: none;
+			margin-right: auto;
+			margin-left: auto;
+			padding-left: 0;
+			text-align: center;
+		}
+	}
+	.container{
+		padding-top: 148px;
+	}
+}
+@media all and (max-width: 1024px) {
+	.container {
+		.todo-body {
+			margin-bottom: 40px;
+		}
+		.update-todo,
+		.delete-todo {
+			color: #222;
+			margin: -23px 0 0 20px;
+		}
+		
+
 	}
 }
