@@ -18,6 +18,23 @@ var errorMessage = '<h1>Something went wrong, try again in a few seconds',
 
 $(document).ready(function(){
 
+	$('.update-todo').on('click', function(e){
+		var $self = $(this);
+		e.preventDefault();
+		$.ajax({
+			type: 'GET',
+			url: 'todo/' + $self.data('id'),
+			success: function(data) {
+				generateModal(data);
+				addModalListeners();
+				$('#updateTodo').val($('#updateTodo').attr('placeholder'));
+			},
+			error: function(){
+				generateModal(errorMessage);
+			}
+		});
+	});
+
 	$('.delete-todo').on('click', function(e){
 		var $self = $(this);
 		e.preventDefault();
@@ -57,9 +74,23 @@ $(document).ready(function(){
 				$(this).remove();
 			});
 		});
+
+		$('#sendUpdate').on('click', function(e){
+			$self = $(this);
+			$.ajax({
+				type: 'PUT',
+				url: '/todo/' + $self.data('updateid'),
+				data: { 'content' : $self.parent().find('#updateTodo').val()},
+				success: function(data){
+					$('#modal-background').click();
+				},
+				error: function(){
+					generateModal(errorMessage);
+				}
+			})
+		});
 	}
-		
-	//});
+
 	$('#addNew').on('click', function(e){
 		e.preventDefault();
 		$.ajax({
@@ -73,5 +104,6 @@ $(document).ready(function(){
 			}
 		})
 		
-	})
+	});
+
 });

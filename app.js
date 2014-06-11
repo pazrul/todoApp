@@ -51,11 +51,14 @@ app.get('/todos', todos.list);
 app.get('/todos/:delete?', todos.delModal);
 app.get('/newtodo/:partial?', todos.newtodo);
 
+app.get('/todo/:id/:partial?', todos.updateModal);
 
+app.put('/todo/:id', todos.updateTodo);
 app.post('/addtodo', todos.addtodo);
 
 app.delete('/todos/:id/delete', todos.deleteTodo);
 
+app.use(todos.catchAll);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

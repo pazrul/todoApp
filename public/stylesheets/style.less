@@ -102,7 +102,7 @@ a {
 			}
 		}
 	}
-	a {
+	.delete-todo {
 		color: #fff;
 		display: block;
 		float: right;
@@ -112,6 +112,24 @@ a {
 			color: @deleteRed;
 		}
 
+	}
+
+	.update-todo {
+		color: #fff;
+		display: block;
+		float: left;
+		margin: -60px 0 0 20px;
+
+		&:hover {
+			color: @navBGColorBottom;
+		}
+
+	}
+	.four-oh-four {
+		color: #000;
+		display: inline;
+		float: none;
+		margin: 0;
 	}
 }
 
@@ -169,5 +187,10 @@ a {
 		#addNoteSubmit {
 			text-align: center;
 		}
+	}
+	#updateTodo {
+		margin: 1% 10%;
+		text-align: center;
+		width: 80%;
 	}
 }

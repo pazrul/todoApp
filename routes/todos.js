@@ -50,6 +50,31 @@ exports.addtodo = function(req, res) {
 	});
 };
 
+exports.updateModal = function(req, res) {
+	var id = req.params.id,
+	collection = db.get('todos');
+	collection.findOne({_id: id}, function(err, doc) {
+		if (doc){
+			res.render( 'partials/partial-update', {
+				'todo' : doc
+			});
+		}
+	})
+
+	//res.render('partials/partial-update', doc);
+}
+
+exports.updateTodo = function(req, res) {
+	var id = req.params.id,
+		content = req.body.content,
+		collection = db.get('todos');
+	collection.update({_id: id }, {'content': content }, function(err, doc) {
+		if (doc){
+			
+		}
+		res.redirect('/');
+	});
+}
 exports.delModal = function(req, res) {
 	if (req.params.delete) {
 		res.render('partials/partial-delete');
@@ -72,4 +97,12 @@ exports.deleteTodo = function(req, res) {
 			res.send('');
 		}
 	});
+}
+
+/*
+* 404 page
+*/
+
+exports.catchAll = function(req, res) {
+	res.render('404');
 }
